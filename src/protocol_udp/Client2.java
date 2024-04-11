@@ -8,22 +8,25 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class Client2 {
-    public final static String SERVER_IP = "127.0.0.2";
+    public final static String SERVER_IP = "127.0.0.1";
     public final static int SERVER_PORT = 7; // Cổng mặc định của Echo Server
     public final static byte[] BUFFER = new byte[4096]; // Vùng đệm chứa dữ liệu cho gói tin nhận
 
     public static void main(String[] args) {
         DatagramSocket ds = null;
         try {
-            ds = new DatagramSocket(9000); // Tạo DatagramSocket
+            ds = new DatagramSocket(3172); // Tạo DatagramSocket
             System.out.println("Client started ");
 
             InetAddress server = InetAddress.getByName(SERVER_IP);
             while (true) {
                 System.out.println("Enter your message: ");
                 InputStreamReader isr = new InputStreamReader(System.in); // Nhập
-                BufferedReader br = new BufferedReader(isr); // một chuỗi
+                System.err.println((char) isr.read());
+                BufferedReader br = new BufferedReader(isr); // một chuỗifdbdf
+                System.err.println(br.toString());
                 String theString = br.readLine(); // từ bàn phím
+                System.err.println(theString);
                 byte[] data = theString.getBytes(); // Đổi chuỗi ra mảng bytes
 
                 // Tạo gói tin gởi
